@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.comboBox_port = new System.Windows.Forms.ComboBox();
             this.button_connect = new System.Windows.Forms.Button();
             this.button_disconnect = new System.Windows.Forms.Button();
@@ -38,38 +37,39 @@
             this.label_receive = new System.Windows.Forms.Label();
             this.label_port = new System.Windows.Forms.Label();
             this.button_send = new System.Windows.Forms.Button();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label_status = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox_band = new System.Windows.Forms.ComboBox();
             this.label_band = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_Serial = new System.Windows.Forms.TabPage();
-            this.tabPage_Battery = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label_datasize = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox_parity = new System.Windows.Forms.ComboBox();
             this.label_parity = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox_datasize = new System.Windows.Forms.ComboBox();
+            this.label_datasize = new System.Windows.Forms.Label();
+            this.tabPage_Battery = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button_BATtest = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage_Serial.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabPage_Battery.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox_port
             // 
             this.comboBox_port.FormattingEnabled = true;
-            this.comboBox_port.Location = new System.Drawing.Point(421, 23);
-            this.comboBox_port.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox_port.Location = new System.Drawing.Point(368, 18);
             this.comboBox_port.Name = "comboBox_port";
-            this.comboBox_port.Size = new System.Drawing.Size(111, 23);
+            this.comboBox_port.Size = new System.Drawing.Size(98, 20);
             this.comboBox_port.TabIndex = 0;
             // 
             // button_connect
             // 
-            this.button_connect.Location = new System.Drawing.Point(418, 272);
-            this.button_connect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button_connect.Location = new System.Drawing.Point(366, 218);
             this.button_connect.Name = "button_connect";
-            this.button_connect.Size = new System.Drawing.Size(111, 25);
+            this.button_connect.Size = new System.Drawing.Size(97, 20);
             this.button_connect.TabIndex = 1;
             this.button_connect.Text = "포트열기";
             this.button_connect.UseVisualStyleBackColor = true;
@@ -77,10 +77,9 @@
             // 
             // button_disconnect
             // 
-            this.button_disconnect.Location = new System.Drawing.Point(418, 302);
-            this.button_disconnect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button_disconnect.Location = new System.Drawing.Point(366, 242);
             this.button_disconnect.Name = "button_disconnect";
-            this.button_disconnect.Size = new System.Drawing.Size(111, 27);
+            this.button_disconnect.Size = new System.Drawing.Size(97, 22);
             this.button_disconnect.TabIndex = 1;
             this.button_disconnect.Text = "포트닫기";
             this.button_disconnect.UseVisualStyleBackColor = true;
@@ -88,54 +87,51 @@
             // 
             // textBox_send
             // 
-            this.textBox_send.Location = new System.Drawing.Point(3, 304);
-            this.textBox_send.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox_send.Location = new System.Drawing.Point(3, 243);
             this.textBox_send.Name = "textBox_send";
-            this.textBox_send.Size = new System.Drawing.Size(299, 25);
+            this.textBox_send.Size = new System.Drawing.Size(262, 21);
             this.textBox_send.TabIndex = 2;
             // 
             // richTextBox_received
             // 
-            this.richTextBox_received.Location = new System.Drawing.Point(3, 23);
-            this.richTextBox_received.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.richTextBox_received.Location = new System.Drawing.Point(3, 18);
             this.richTextBox_received.Name = "richTextBox_received";
-            this.richTextBox_received.Size = new System.Drawing.Size(409, 250);
+            this.richTextBox_received.Size = new System.Drawing.Size(358, 201);
             this.richTextBox_received.TabIndex = 3;
             this.richTextBox_received.Text = "";
             // 
             // label_send
             // 
             this.label_send.AutoSize = true;
-            this.label_send.Location = new System.Drawing.Point(3, 282);
+            this.label_send.Location = new System.Drawing.Point(3, 226);
             this.label_send.Name = "label_send";
-            this.label_send.Size = new System.Drawing.Size(37, 15);
+            this.label_send.Size = new System.Drawing.Size(29, 12);
             this.label_send.TabIndex = 4;
             this.label_send.Text = "송신";
             // 
             // label_receive
             // 
             this.label_receive.AutoSize = true;
-            this.label_receive.Location = new System.Drawing.Point(0, 4);
+            this.label_receive.Location = new System.Drawing.Point(0, 3);
             this.label_receive.Name = "label_receive";
-            this.label_receive.Size = new System.Drawing.Size(37, 15);
+            this.label_receive.Size = new System.Drawing.Size(29, 12);
             this.label_receive.TabIndex = 4;
             this.label_receive.Text = "수신";
             // 
             // label_port
             // 
             this.label_port.AutoSize = true;
-            this.label_port.Location = new System.Drawing.Point(418, 4);
+            this.label_port.Location = new System.Drawing.Point(366, 3);
             this.label_port.Name = "label_port";
-            this.label_port.Size = new System.Drawing.Size(111, 15);
+            this.label_port.Size = new System.Drawing.Size(90, 12);
             this.label_port.TabIndex = 5;
             this.label_port.Text = "COM 포트 설정";
             // 
             // button_send
             // 
-            this.button_send.Location = new System.Drawing.Point(308, 302);
-            this.button_send.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button_send.Location = new System.Drawing.Point(270, 242);
             this.button_send.Name = "button_send";
-            this.button_send.Size = new System.Drawing.Size(104, 29);
+            this.button_send.Size = new System.Drawing.Size(91, 23);
             this.button_send.TabIndex = 6;
             this.button_send.Text = "보내기";
             this.button_send.UseVisualStyleBackColor = true;
@@ -144,67 +140,71 @@
             // label_status
             // 
             this.label_status.AutoSize = true;
-            this.label_status.Location = new System.Drawing.Point(3, 333);
+            this.label_status.Location = new System.Drawing.Point(3, 266);
             this.label_status.Name = "label_status";
-            this.label_status.Size = new System.Drawing.Size(67, 15);
+            this.label_status.Size = new System.Drawing.Size(53, 12);
             this.label_status.TabIndex = 7;
             this.label_status.Text = "연결상태";
             // 
-            // comboBox1
+            // comboBox_band
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(421, 68);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(111, 23);
-            this.comboBox1.TabIndex = 8;
+            this.comboBox_band.FormattingEnabled = true;
+            this.comboBox_band.Items.AddRange(new object[] {
+            "600",
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "14400",
+            "19200",
+            "38400",
+            "56000",
+            "57600",
+            "115200"});
+            this.comboBox_band.Location = new System.Drawing.Point(368, 54);
+            this.comboBox_band.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_band.Name = "comboBox_band";
+            this.comboBox_band.Size = new System.Drawing.Size(98, 20);
+            this.comboBox_band.TabIndex = 8;
             // 
             // label_band
             // 
             this.label_band.AutoSize = true;
-            this.label_band.Location = new System.Drawing.Point(418, 50);
+            this.label_band.Location = new System.Drawing.Point(366, 40);
             this.label_band.Name = "label_band";
-            this.label_band.Size = new System.Drawing.Size(41, 15);
+            this.label_band.Size = new System.Drawing.Size(59, 12);
             this.label_band.TabIndex = 9;
-            this.label_band.Text = "Band";
+            this.label_band.Text = "Band rate";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage_Serial);
             this.tabControl1.Controls.Add(this.tabPage_Battery);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(10, 10);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(784, 483);
+            this.tabControl1.Size = new System.Drawing.Size(686, 386);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage_Serial
             // 
             this.tabPage_Serial.Controls.Add(this.panel1);
-            this.tabPage_Serial.Location = new System.Drawing.Point(4, 25);
+            this.tabPage_Serial.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Serial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_Serial.Name = "tabPage_Serial";
-            this.tabPage_Serial.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Serial.Size = new System.Drawing.Size(776, 454);
+            this.tabPage_Serial.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_Serial.Size = new System.Drawing.Size(678, 360);
             this.tabPage_Serial.TabIndex = 0;
             this.tabPage_Serial.Text = "Serial";
             this.tabPage_Serial.UseVisualStyleBackColor = true;
-            this.tabPage_Serial.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // tabPage_Battery
-            // 
-            this.tabPage_Battery.Location = new System.Drawing.Point(4, 25);
-            this.tabPage_Battery.Name = "tabPage_Battery";
-            this.tabPage_Battery.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Battery.Size = new System.Drawing.Size(776, 454);
-            this.tabPage_Battery.TabIndex = 1;
-            this.tabPage_Battery.Text = "Battery";
-            this.tabPage_Battery.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel1.Controls.Add(this.comboBox3);
+            this.panel1.Controls.Add(this.comboBox_parity);
             this.panel1.Controls.Add(this.label_parity);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.comboBox_datasize);
             this.panel1.Controls.Add(this.label_datasize);
             this.panel1.Controls.Add(this.richTextBox_received);
             this.panel1.Controls.Add(this.button_disconnect);
@@ -212,58 +212,93 @@
             this.panel1.Controls.Add(this.button_connect);
             this.panel1.Controls.Add(this.label_band);
             this.panel1.Controls.Add(this.textBox_send);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.comboBox_band);
             this.panel1.Controls.Add(this.label_send);
             this.panel1.Controls.Add(this.label_receive);
             this.panel1.Controls.Add(this.label_port);
             this.panel1.Controls.Add(this.button_send);
             this.panel1.Controls.Add(this.comboBox_port);
-            this.panel1.Location = new System.Drawing.Point(6, 6);
+            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(764, 442);
+            this.panel1.Size = new System.Drawing.Size(668, 354);
             this.panel1.TabIndex = 0;
             // 
-            // label_datasize
+            // comboBox_parity
             // 
-            this.label_datasize.AutoSize = true;
-            this.label_datasize.Location = new System.Drawing.Point(418, 94);
-            this.label_datasize.Name = "label_datasize";
-            this.label_datasize.Size = new System.Drawing.Size(86, 19);
-            this.label_datasize.TabIndex = 10;
-            this.label_datasize.Text = "Data size";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(421, 116);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(111, 23);
-            this.comboBox2.TabIndex = 11;
+            this.comboBox_parity.FormattingEnabled = true;
+            this.comboBox_parity.Location = new System.Drawing.Point(368, 128);
+            this.comboBox_parity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_parity.Name = "comboBox_parity";
+            this.comboBox_parity.Size = new System.Drawing.Size(98, 20);
+            this.comboBox_parity.TabIndex = 13;
             // 
             // label_parity
             // 
             this.label_parity.AutoSize = true;
-            this.label_parity.Location = new System.Drawing.Point(418, 142);
+            this.label_parity.Location = new System.Drawing.Point(366, 114);
             this.label_parity.Name = "label_parity";
-            this.label_parity.Size = new System.Drawing.Size(44, 15);
+            this.label_parity.Size = new System.Drawing.Size(37, 12);
             this.label_parity.TabIndex = 12;
             this.label_parity.Text = "Parity";
             // 
-            // comboBox3
+            // comboBox_datasize
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(421, 160);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(111, 23);
-            this.comboBox3.TabIndex = 13;
+            this.comboBox_datasize.FormattingEnabled = true;
+            this.comboBox_datasize.Location = new System.Drawing.Point(368, 93);
+            this.comboBox_datasize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox_datasize.Name = "comboBox_datasize";
+            this.comboBox_datasize.Size = new System.Drawing.Size(98, 20);
+            this.comboBox_datasize.TabIndex = 11;
+            // 
+            // label_datasize
+            // 
+            this.label_datasize.AutoSize = true;
+            this.label_datasize.Location = new System.Drawing.Point(366, 75);
+            this.label_datasize.Name = "label_datasize";
+            this.label_datasize.Size = new System.Drawing.Size(58, 12);
+            this.label_datasize.TabIndex = 10;
+            this.label_datasize.Text = "Data size";
+            // 
+            // tabPage_Battery
+            // 
+            this.tabPage_Battery.Controls.Add(this.panel2);
+            this.tabPage_Battery.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Battery.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_Battery.Name = "tabPage_Battery";
+            this.tabPage_Battery.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_Battery.Size = new System.Drawing.Size(678, 360);
+            this.tabPage_Battery.TabIndex = 1;
+            this.tabPage_Battery.Text = "Battery";
+            this.tabPage_Battery.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel2.Controls.Add(this.button_BATtest);
+            this.panel2.Location = new System.Drawing.Point(5, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(668, 354);
+            this.panel2.TabIndex = 0;
+            // 
+            // button_BATtest
+            // 
+            this.button_BATtest.Location = new System.Drawing.Point(592, 330);
+            this.button_BATtest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_BATtest.Name = "button_BATtest";
+            this.button_BATtest.Size = new System.Drawing.Size(74, 23);
+            this.button_BATtest.TabIndex = 0;
+            this.button_BATtest.Text = "Test";
+            this.button_BATtest.UseVisualStyleBackColor = true;
+            this.button_BATtest.Click += new System.EventHandler(this.button_BATtest_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 501);
+            this.ClientSize = new System.Drawing.Size(703, 401);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -271,6 +306,8 @@
             this.tabPage_Serial.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabPage_Battery.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -286,18 +323,19 @@
         private System.Windows.Forms.Label label_receive;
         private System.Windows.Forms.Label label_port;
         private System.Windows.Forms.Button button_send;
-        private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Label label_status;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox_band;
         private System.Windows.Forms.Label label_band;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage_Serial;
         private System.Windows.Forms.TabPage tabPage_Battery;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox_parity;
         private System.Windows.Forms.Label label_parity;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox_datasize;
         private System.Windows.Forms.Label label_datasize;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button_BATtest;
     }
 }
 
