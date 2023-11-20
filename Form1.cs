@@ -18,7 +18,7 @@ namespace Serial_Communication
         private void Form1_Load(object sender, EventArgs e)  //폼이 로드되면
         {
             comboBox_port.DataSource = SerialPort.GetPortNames(); //연결 가능한 시리얼포트 이름을 콤보박스에 가져오기 
-            comboBox_band.SelectedIndex = 4; //보레이트 기본설정(그냥 연결 눌렀다가 에러나지 않게)
+            comboBox_band.SelectedIndex = 10; //보레이트 기본설정(그냥 연결 눌렀다가 에러나지 않게)
         }
 
         private void Button_connect_Click(object sender, EventArgs e)  //통신 연결하기 버튼
@@ -115,6 +115,23 @@ namespace Serial_Communication
             BatteryInfoTxt.Text +="BL1 :"+ ((double)BatteryInfo.receivedBL[0]).ToString()+"\n";
             BatteryInfoTxt.Text +="BL2 :"+ ((double)BatteryInfo.receivedBL[1]).ToString()+"\n";
             BatteryInfoTxt.Text +="BL3 :"+ ((double)BatteryInfo.receivedBL[2]).ToString()+"\n";
+            //Check Sum? STX ~ data까지 모든 데이터 합산한 1Byte Hex 값을 ASCII로 변환
+            //예) 0x02 + 0x05 + 0xF2 + 0x5A = 0x153 -> 0x53 -> '5','3' - > 0x35,0x33 /
+            //revers 0x42, 0x36 -> 'B', '6' ->B6 ->0x__B6
+            //rerevers F22->
+            int calChecksum = 0;
+            for(int i = 0; i < 46; i++)
+            {
+                calChecksum += receivedEX[ i];
+            }//=3874=F22
+           // calChecksum %= 256;
+            byte[] checksumBytes = new byte[2];
+            checksumBytes[0] = (byte)(calChecksum >> 8);
+            checksumBytes[1] = (byte)(calChecksum & 0xFF);
+
+            BatteryInfoTxt.Text += "ReceiveCSum :" + ((double)BatteryInfo.receivedChecksum).ToString() + "\n";//받은거 13890
+            BatteryInfoTxt.Text += "CalChechsum :" + calChecksum + "\n";// 계산한거 3874 ->F22
+            BatteryInfoTxt.Text += "CalChechsum2 :" + checksumBytes[1];// 계산한거 3874 ->F22
 
 
         }

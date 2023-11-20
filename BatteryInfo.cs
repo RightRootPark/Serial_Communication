@@ -18,7 +18,9 @@ namespace Serial_Communication
        public  static ushort[] receivedCV = new ushort[16];
         public static ushort[] receivedBL = new ushort[3];
         static byte[] receivedEX = { 0x2, 0x5, 0x2B, 0x0, 0x8A, 0x20, 0x0, 0x0, 0x0, 0xCE, 0x12, 0xD4, 0x12, 0xD4, 0x12, 0xD4, 0x12, 0xD4, 0x12, 0xD3, 0x12, 0xD4, 0x12, 0xD3, 0x12, 0xD1, 0x12, 0xD3, 0x12, 0xD3, 0x12, 0xD3, 0x12, 0xD3, 0x12, 0xD3, 0x12, 0xD3, 0x12, 0xCB, 0x12, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x42, 0x36, 0x3 };
-        static ushort receivedChecksum;
+       public static ushort receivedChecksum;
+        static ushort receivedChecksum1;
+        static ushort receivedChecksum2;
         static byte receivedETX;
 
         private static void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -59,6 +61,9 @@ namespace Serial_Communication
             }
 
             receivedChecksum = BitConverter.ToUInt16(data, 47);
+            receivedChecksum1 = data[47];
+            receivedChecksum2 = data[48];
+
             receivedETX = data[49];
 
             // 데이터 출력
